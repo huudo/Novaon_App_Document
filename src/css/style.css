@@ -8168,11 +8168,26 @@ button {
     -webkit-box-shadow: none !important;
     box-shadow: none !important; }
 .section-title h2{
-  border-bottom: 2px solid #da4c4c;
-  display: inline-block;
+  text-align: left;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #1b1b1b;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size: 2.5rem;
 }
 .section-content{
   padding-left: 15px;
+}
+.group-code{
+  padding: 10px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  background: #ececec;
+  margin-bottom: 10px;
+}
+.group-code p:last-child{
+  margin-bottom:  0px !important;
 }
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
