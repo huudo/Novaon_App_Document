@@ -1,319 +1,631 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Hướng dẫn viết App cho Onshop</title>
     <link rel="stylesheet" href="src/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/codemirror.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-  <div class="wrapper d-flex align-items-stretch">
+
+    <script type="text/javascript" src="src/js/codemirror.js"></script>
+    <script src="src/codemirror/mode/php/php.js"></script>
+    <script src="src/codemirror/mode/xml/xml.js"></script>
+    <script src="src/codemirror/mode/clike/clike.js"></script>
+
+</head>
+<body>
+<div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
-      <div class="custom-menu">
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
-          <i class="fa fa-bars"></i>
-          <span class="sr-only">Toggle Menu</span>
-        </button>
-      </div>
-      <div class="p-4 pt-5">
-        <h1><a href="index.html" class="logo">Appstore</a></h1>
-        <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="#introduce3">Giới thiệu</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li>
-                <a href="#">Page 1</a>
-              </li>
-              <li>
-                <a href="#">Page 2</a>
-              </li>
-              <li>
-                <a href="#">Page 3</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Portfolio</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-
-        <div class="mb-5">
-          <h3 class="h6">Subscribe for newsletter</h3>
-          <form action="#" class="colorlib-subscribe-form">
-            <div class="form-group d-flex">
-              <div class="icon"><span class="icon-paper-plane"></span></div>
-              <input type="text" class="form-control" placeholder="Enter Email Address">
+        <div class="p-4 pt-5 nav-link">
+            <div class="logo">
+                <img src="src/img/logo.png">
             </div>
-          </form>
-        </div>
+            <h1><a href="index.html" class="logo">Appstore</a></h1>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="#introduce">Giới thiệu</a>
+                </li>
+                <li>
+                    <a href="#structure">Cấu trúc & mô hình</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Khái niệm & Quy ước</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">App code</a>
+                        </li>
+                        <li>
+                            <a href="#">Module</a>
+                        </li>
+                        <li>
+                            <a href="#">Controller & Đường dẫn</a>
+                        </li>
+                        <li>
+                            <a href="#">Model</a>
+                        </li>
+                        <li>
+                            <a href="#">View</a>
+                        </li>
+                        <li>
+                            <a href="#">Layout</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Chi tiết</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li>
+                            <a href="#">Cài đặt ứng dụng</a>
+                        </li>
+                        <li>
+                            <a href="#">Gỡ ứng dụng</a>
+                        </li>
+                        <li>
+                            <a href="#">Thêm module</a>
+                        </li>
+                        <li>
+                            <a href="#">Chỉnh sửa module</a>
+                        </li>
+                        <li>
+                            <a href="#">Xóa module</a>
+                        </li>
+                        <li>
+                            <a href="#">Cài đặt vị trí hiển thị</a>
+                        </li>
+                        <li>
+                            <a href="#">Lấy danh sách modules</a>
+                        </li>
+                        <li>
+                            <a href="#">Lấy dữ liệu của Shop</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Hiển thị ứng dụng</a>
+                </li>
+            </ul>
 
-        <div class="footer">
-          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-        </div>
+            <div class="mb-5">
+                <h3 class="h6">Subscribe for newsletter</h3>
+                <form action="#" class="colorlib-subscribe-form">
+                    <div class="form-group d-flex">
+                        <div class="icon"><span class="icon-paper-plane"></span></div>
+                        <input type="text" class="form-control" placeholder="Enter Email Address">
+                    </div>
+                </form>
+            </div>
 
-      </div>
+            <div class="footer">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+
+        </div>
     </nav>
 
     <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
-      <section id="introduce">
-        <div class="section-title">
-          <h2 class="mb-4">Giới thiệu</h2>
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
         </div>
-        <div class="section-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </section>
-      <section id="structure">
-        <div class="section-title">
-          <h2 class="mb-4">Cấu trúc & mô hình</h2>
-        </div>
-        <div class="section-content">
-          <p>Các ứng dụng trên App Store của Onshop được viết và đóng gói thành các extension để cài đặt trên hệ thống sử dụng mã nguồn mở Opencart</p>
-          <p>Ứng dụng sử dụng mô hình MVC với cấu trúc thư mục như sau: </p>
-          <div class="feature-img">
-            <img src="src/img/structure.jpg">
-          </div>
-          <p></p>
-          <p>Cấu trúc đường dẫn đến thư mục "appstore" ở các luồng là cấu trúc mặc đinh.
-            Nhà phát triển chỉ triển khai viết ứng dụng theo mô hình MVC bên trong các thư mục "appstore" này. </p>
-          <h4>Admin</h4>
-          <p>Source code nằm trong thư mục cha "admin" giúp quản lý hệ thống cài đặt, cấu hình các thông tin cần thiết cho ứng dụng.</p>
-          <p>Nhà phát triển sẽ được cung cấp 1 số function giành cho các chứng năng mặc định cho ứng dụng như: </p>
-          <p>- Cặt đặt ứng dụng</p>
-          <p>- Gỡ ứng dụng</p>
-          <p>- Cài đặt vị trí hiển thị của ứng dụng</p>
-          <p>- Phương thức lấy dữ liệu của hệ thống</p>
-          <h4>Catalog</h4>
-          <p>Source code nằm trong thư mục cha "catalog" là phần sẽ thể hiện chức năng của ứng dụng đối với người dùng website .</p>
-          <p>Mô hình MVC hoạt động riêng rẽ tương ứng với thành phần trong Admin và Catalog. </p>
-        </div>
-      </section>
-      <section id="concept">
-        <div class="section-title">
-          <h2 class="mb-4">Các khái niệm, quy ước</h2>
-        </div>
-        <div class="section-content">
-          <div class="content-group">
-            <h4>App code</h4>
-            <p>App code là tên mã của ứng dụng của bạn, thường được đặt theo tên viết tắt của ứng dụng. </p>
-            <p>- Ví dụ: Tên ứng dụng là Flash Sale thì app code sẽ là flash_sale</p>
-            <p>Mã app_code là định danh quan trọng, và là duy nhất để phân biệt các app khác nhau trên hệ thống App Store của Onshop.</p>
-            <h4>Module</h4>
-            <p>Ứng dụng của bạn, nếu muốn cung cấp chức năng và hiển thị để cho người dùng website thao tác thì cần tạo các thành phần (Module) cho ứng dụng
-              và cấu hình vị trí hiển thị trên website.</p>
-            <p>Onshop sẽ cung cấp các phương thức để nhà phát triển có thể :</p>
-            <p> - Tạo module cho ứng dụng.</p>
-            <p> - Xóa/ chỉnh sửa module.</p>
-            <p> - Cấu hình vị trí hiển thị module trên website.</p>
-          </div>
-          <div class="content-group">
-            <h4>Đường dẫn</h4>
-            <p>Ứng dụng viết theo cấu trúc của Opencart nên cấu trúc đường dẫn sẽ là đường dẫn đến controller và function của nó.</p>
-            <p>- Ví dụ: Bạn có function module trong controller flash_sale thì đường dẫn để gọi function này là: </p>
-            <div class="group-code">
-              <p>route=extension/appstore/flash_sale/module&user_token=EtLyM37n1QtE9TcuWif5EyHqdLqGvoHt</p>
+        <section id="introduce">
+            <div class="section-title">
+                <h2 class="mb-4">Giới thiệu</h2>
             </div>
-            <p>- user_token là param mặc định luôn phải có trong cấu trúc mỗi đường dẫn của ứng dụng</p>
-            <p>Cách tạo 1 đường dẫn đầy đủ trong Opencart</p>
-            <div class="group-code">
-              <p>
-                $url = $this->url->link('extension/appstore/flash_sale', 'user_token=' . $this->session->data['user_token'], true)
-              </p>
+            <div class="section-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
-          </div>
-          <div class="content-group">
-            <h4>Model</h4>
-            <p>Model thể hiện rõ các thao tác với cơ sở dữ liệu, để sử dụng được model các bạn sử dụng phương thức load như sau:</p>
-            <div class="group-code">
-              <p>// Load model</p>
-              <p>$this->load->model('extension/appstore/flash_sale');</p>
-              <p>// Call function in Model</p>
-              <p>$this->model_extension_appstore_flash_sale->createTables();</p>
+        </section>
+        <section id="structure">
+            <div class="section-title">
+                <h2 class="mb-4">Cấu trúc & mô hình</h2>
             </div>
-            <p>Lưu ý: </p>
-            <p> - Bạn chỉ được phép load các model do chính bạn tạo ra hoặc liên quan đến cài đặt ứng dụng được liệt kê và cung cấp.</p>
-            <p> - Tất cả dữ liệu khác sẽ được cung cấp bằng các thư viện sẽ được mô tả sau.</p>
+            <div class="section-content">
+                <p>Các ứng dụng trên App Store được viết và đóng gói thành các chương trình để cài đặt trên hệ thống của Onshop.</p>
+                <p>Ứng dụng sử dụng mô hình MVC với cấu trúc thư mục như sau: </p>
+                <div class="feature-img">
+                    <img src="src/img/structure.jpg">
+                </div>
+                <p></p>
+                <p>Cấu trúc đường dẫn đến thư mục "appstore" ở các luồng là cấu trúc mặc đinh.
+                    Nhà phát triển chỉ triển khai viết ứng dụng theo mô hình MVC bên trong các thư mục "appstore" này. </p>
+                <h4>Admin</h4>
+                <p>Source code nằm trong thư mục cha "admin" giúp quản lý hệ thống cài đặt, cấu hình các thông tin cần thiết cho ứng dụng.</p>
+                <p>Nhà phát triển sẽ được cung cấp 1 số function giành cho các chứng năng mặc định cho ứng dụng như: </p>
+                <p>- Cặt đặt ứng dụng</p>
+                <p>- Gỡ ứng dụng</p>
+                <p>- Cài đặt vị trí hiển thị của ứng dụng</p>
+                <p>- Phương thức lấy dữ liệu của hệ thống</p>
+                <h4>Catalog</h4>
+                <p>Source code nằm trong thư mục cha "catalog" là phần sẽ thể hiện chức năng của ứng dụng đối với người dùng website .</p>
+                <p>Mô hình MVC hoạt động riêng rẽ tương ứng với thành phần trong Admin và Catalog. </p>
+            </div>
+        </section>
+        <section id="concept">
+            <div class="section-title">
+                <h2 class="mb-4">Các khái niệm, quy ước</h2>
+            </div>
+            <div class="section-content">
+                <div class="content-group">
+                    <h4>App code</h4>
+                    <p>App code là tên mã của ứng dụng của bạn, thường được đặt theo tên viết tắt của ứng dụng. </p>
+                    <p>- Ví dụ: Tên ứng dụng là Flash Sale thì app code sẽ là flash_sale</p>
+                    <p>Mã app_code là định danh quan trọng, và là duy nhất để phân biệt các app khác nhau trên hệ thống App Store của Onshop.</p>
+                    <h4>Module</h4>
+                    <p>Ứng dụng của bạn, nếu muốn cung cấp chức năng và hiển thị để cho người dùng website thao tác thì cần tạo các thành phần (Module) cho ứng dụng
+                        và cấu hình vị trí hiển thị trên website.</p>
+                    <p>Onshop sẽ cung cấp các phương thức để nhà phát triển có thể :</p>
+                    <p> - Tạo module cho ứng dụng.</p>
+                    <p> - Xóa/ chỉnh sửa module.</p>
+                    <p> - Cấu hình vị trí hiển thị module trên website.</p>
+                </div>
+                <div class="content-group">
+                    <h4>Controller & đường dẫn</h4>
+                    <p>Cấu trúc đường dẫn của ứng dụng sẽ là đường dẫn đến controller và function của nó.</p>
+                    <p>- Ví dụ: Bạn có function getHelloWorld trong controller flash_sale thì đường dẫn để gọi function này là: </p>
+                    <div class="group-code">
+                        <p>route=extension/appstore/flash_sale/getHelloWorld&user_token=EtLyM37n1QtE9TcuWif5EyHqdLqGvoHt</p>
+                    </div>
+                    <p>- user_token là param mặc định luôn phải có trong cấu trúc mỗi đường dẫn của ứng dụng</p>
+                    <p>Cách tạo 1 đường dẫn đầy đủ</p>
+                    <div class="group-code">
+                        <p>
+                            $url = $this->url->link('extension/appstore/flash_sale/getHelloWorld', 'user_token=' . $this->session->data['user_token'], true)
+                        </p>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Model</h4>
+                    <p>Model thể hiện rõ các thao tác với cơ sở dữ liệu, để sử dụng được model các bạn sử dụng phương thức load như sau:</p>
+                    <div class="group-code">
+                        <p>// Load model</p>
+                        <p>$this->load->model('extension/appstore/flash_sale');</p>
+                        <p>// Call function in Model</p>
+                        <p>$this->model_extension_appstore_flash_sale->createTables();</p>
+                    </div>
+                    <p>Lưu ý: </p>
+                    <p> - Bạn chỉ được phép load các model do chính bạn tạo ra.</p>
+                    <p> - Tất cả dữ liệu khác sẽ được cung cấp bằng các thư viện sẽ được mô tả sau.</p>
 
-          </div>
-          <div class="content-group">
-            <h4>View</h4>
-            <p>Cũng giống như các mô hình MCV, đây là phần giao diện (theme) dành cho người sử dụng.</p>
-            <p>Để truyền dữ liệu từ controller ra view hãy sử dụng phương thức sau</p>
-            <div class="group-code">
-              <p>$this->response->setOutput($this->load->view('extension/appstore/flash_sale/edit_module',$data));</p>
+                </div>
+                <div class="content-group">
+                    <h4>View</h4>
+                    <p>Cũng giống như các mô hình MCV, đây là phần giao diện (theme) dành cho người sử dụng.</p>
+                    <p>Để truyền dữ liệu từ controller ra view hãy sử dụng phương thức sau</p>
+                    <div class="group-code">
+
+                        <p>$this->response->setOutput($this->load->view('extension/appstore/flash_sale/edit_module',$data));</p>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Layout</h4>
+                    <p>Là các thành phần được viết sẵn để bạn import vào giao diện của mình</p>
+                    <p>Các layout mặc định và bắt buộc bao gồm: custom_header, footer, custom_column_left</p>
+                    <p>Cách dùng:</p>
+                    <div class="group-code">
+                        <p>// Load các layout</p>
+                        <p>$data['custom_header'] = $this->load->controller('common/custom_header');</p>
+                        <p>$data['custom_column_left'] = $this->load->controller('common/custom_column_left');</p>
+                        <p>$data['footer'] = $this->load->controller('common/footer');</p>
+                        <p>// Truyền các layout ra view qua biến $data</p>
+                        <p>$this->response->setOutput($this->load->view('extension/appstore/flash_sale/edit_module',$data));</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="content-group">
-            <h4>Layout</h4>
-            <p>Là các thành phần được viết sẵn để bạn import vào giao diện của mình</p>
-            <p>Các layout mặc định và bắt buộc bao gồm: custom_header, footer, custom_column_left</p>
-            <p>Cách dùng:</p>
-            <div class="group-code">
-              <p>// Load các layout</p>
-              <p>$data['custom_header'] = $this->load->controller('common/custom_header');</p>
-              <p>$data['custom_column_left'] = $this->load->controller('common/custom_column_left');</p>
-              <p>$data['footer'] = $this->load->controller('common/footer');</p>
-              <p>// Truyền các layout ra view qua biến $data</p>
-              <p>$this->response->setOutput($this->load->view('extension/appstore/flash_sale/edit_module',$data));</p>
+        </section>
+        <section id="introduce3">
+            <div class="section-title">
+                <h2 class="mb-4">Chi tiết</h2>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="introduce3">
-        <div class="section-title">
-          <h2 class="mb-4">Chi tiết</h2>
-        </div>
-        <div class="section-content">
-          <div class="content-group">
-            <h4>Cài đặt ứng dụng</h4>
-            <p> - Tất cả các ứng dụng để được cài đặt lên Appstore của Onshop thì tại file controller trong Admin: admin\controller\extension\appstore\{your_app_code.php} đều phải có hàm install</p>
-            <p> - Hàm install này nhà phát triển có thể khai báo để tiến hành khởi tạo các bảng dữ liệu cần thiết cho ứng dụng của bạn. Đồng thời khai báo setting với Appstore bằng model sau. </p>
-            <div class="group-code">
-              <p>// Khởi tạo bảng dữ liệu</p>
-              <p>$this->load->model('extension/appstore/flash_sale');</p>
-              <p>$this->model_extension_appstore_flash_sale->createTables();</p>
-              <p>// Khai báo setting</p>
-              <p>
-                $this->load->model('setting/setting');
-              </p>
-              <p>
-                $this->model_setting_setting->editSetting('app_flash_sale', ['app_flash_sale_status' => 1]);
-              </p>
+            <div class="section-content">
+                <div class="content-group">
+                    <h4>Cài đặt ứng dụng</h4>
+                    <p> - Tất cả các ứng dụng để được cài đặt lên Appstore của Onshop thì tại file controller trong Admin: admin\controller\extension\appstore\{your_app_code.php} đều phải có hàm install</p>
+                    <p> - Hàm install này nhà phát triển có thể khai báo để tiến hành khởi tạo các bảng dữ liệu cần thiết cho ứng dụng của bạn. </p>
+                    <p> - Tại đây hãy tiến hành cập nhật tên ứng dụng và logo ứng dụng theo hướng dẫn.</p>
+                    <p> - Ảnh kích thước 200*200px</p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+<?php
+// Import thư viện App_Setting
+use App_Api\App_Setting;
+class ControllerExtensionAppstoreFlashSale extends Controller
+{
+    function install()
+    {
+        // Khởi tạo bảng dữ liệu
+        $this->load->model('extension/appstore/flash_sale');
+        $this->model_extension_appstore_flash_sale->createTables();
+
+        // Update app_name & Logo
+        $data = [
+            "app_name" => "Flash Sale",
+            "path_logo" => "view/image/appstore/flash_sale.jpg"
+        ];
+
+        $setting = new App_Setting($this->registry);
+        $setting->updateInfo("flash_sale",$data);
+    }
+}
+?>
+</textarea>
+                    </div>
+                    <p>- Trong đó: flash_sale là app_code của ứng dụng</p>
+                </div>
+                <div class="content-group">
+                    <h4>Gỡ ứng dụng</h4>
+                    <p> - Tương tự như hàm install thì ứng dụng của bạn cũng bắt buộc cần có hàm uninstall để xóa các bảng liên quan.</p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+<?php
+// Import thư viện App_Config
+use App_Api\App_Config;
+class ControllerExtensionAppstoreYourAppCode extends Controller
+{
+    function uninstall()
+    {
+        /* Gỡ ứng dụng (bắt buộc) */
+        $config = new App_Config($this->registry);
+        $config->unRegisterApp('your_app_code');
+
+        /* DROP các bảng đã thêm */
+        $this->load->model('extension/appstore/your_app_code');
+        $this->model_extension_appstore_your_app_code->dropTables();
+    }
+}
+?>
+</textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <p>Ở trên sử dụng các hàm dropTable() và createTables() thuộc model flash_sale, hãy định nghĩa 2 hàm này trong model của bạn tại: admin\model\extension\appstore\flash_sale</p>
+                    <div class="group-code">
+                        <textarea class="code-area" name="code" >
+<?php
+class ModelExtensionAppstoreFlashSale extends Model
+{
+    function createTables()
+    {
+        $this->db->query("CREATE TABLE IF NOT EXISTS " . DB_PREFIX . "app_flash_sale_product (
+                id INT(11) NOT NULL AUTO_INCREMENT,
+                product_id INT(11) NOT NULL,
+                date_added DATETIME NOT NULL,
+                date_published DATETIME NOT NULL,
+                date_modified DATETIME NOT NULL,
+                PRIMARY KEY (id)
+            )
+            COLLATE='utf8_general_ci'
+            ENGINE=MyISAM;");
+    }
+    function dropTables(){
+        $this->db->query("DROP TABLE IF EXISTS `" . DB_PREFIX . "app_flash_sale_product`");
+    }
+}
+?>
+</textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Thêm module cho ứng dụng</h4>
+                    <p>Ứng dụng của bạn cần hiển thị các thông tin và vị trí hiển thị ra ngoài website cho người dùng. Vậy hãy thêm các modules phù hợp cho ứng dụng</p>
+                    <p>- Một module được thêm cần có 2 trường mặc định là name và status ( 0/1 ). </p>
+                    <p>- Ví dụ: Ứng dụng khuyến mãi cần tạo 1 module với tên chương trình, thời gian khuyến mãi, ...vv</p>
+                    <p>Để thêm ứng dụng, sử dụng thư viện 'App_Setting', hãy import sử dụng thư viện này vào controller của bạn: use App_Api\App_Setting; </p>
+                    <div class="group-code">
+                         <textarea class="code-area" name="code" >
+<?php
+
+// Import thư viện App_Setting
+use App_Api\App_Setting;
+
+class ControllerExtensionAppstoreFlashSale extends Controller
+{
+    public function addModule(){
+        // Khai báo thư viện
+        $setting = new App_Setting($this->registry);
+
+        /* Add module
+        Biến đầu tiên là app_code, biến thứ 2 là dữ liệu từ form mà bạn muốn nhập vào thông tin module của mình như:
+        Tên module, status, ngày hết hạn,vv.. */
+
+        $setting->addModule('flash_sale', $this->request->post);
+    }
+}
+?>
+</textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Chỉnh sửa modules cho ứng dụng</h4>
+                    <p>Trước hết hãy lấy các thông tin về module với module_id của module cần chỉnh sửa</p>
+                    <div class="group-code">
+                        <textarea class="code-area" name="code" >
+<?php
+
+// Import thư viện App_Setting
+use App_Api\App_Setting;
+
+class ControllerExtensionAppstoreFlashSale extends Controller
+{
+    public function editModule(){
+        // Get module
+        // $this->request->get['module_id']: lấy module_id của module cần chỉnh sửa
+
+        // Khai báo thư viện
+        $setting = new App_Setting($this->registry);
+        // Edit module
+        $setting->editModule($this->request->get['module_id'], $this->request->post);
+    }
+}
+?>
+</textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Xóa module</h4>
+                    <p>Để xóa 1 module, sử dụng hàm deleteModule trong model: App_Setting</p>
+                    <div class="group-code">
+                        <textarea class="code-area" name="code" >
+<?php
+
+// Import thư viện App_Setting
+use App_Api\App_Setting;
+
+class ControllerExtensionAppstoreFlashSale extends Controller
+{
+    public function deleteModule(){
+        // Khai báo thư viện
+        $setting = new App_Setting($this->registry);
+        // Delete module
+        $setting->deleteModule($this->request->get['module_id']);
+    }
+}
+?>
+</textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Cài đặt vị trí hiển thị</h4>
+                    <p>Tại trang chỉnh sửa module hãy import layout chỉnh sửa vị trí hiển thị module mà Onshop đã cung cấp sẵn.</p>
+                    <div class="group-code">
+                        <textarea class="code-area" name="code" >
+<?php
+class ControllerExtensionAppstoreFlashSale extends Controller
+{
+    function editModule()
+    {
+        ...
+        // Thông tin modulue
+        $config = [
+                'app' => 'your_app_code',
+                'module_id' => $this->request->get['module_id']
+            ];
+        // Layout cài đặt vị trí hiển thị module
+        $data['app_config'] = $this->load->controller('common/app_config/setTheme',$config);
+
+        $data['custom_header'] = $this->load->controller('common/custom_header');
+        $data['custom_column_left'] = $this->load->controller('common/custom_column_left');
+        $data['footer'] = $this->load->controller('common/footer');
+        $this->response->setOutput($this->load->view('extension/appstore/your_app_code/edit_module',$data));
+    }
+}
+?>
+</textarea>
+                    </div>
+                    <div class="feature-img">
+                        <img src="src/img/app_config.jpg">
+                    </div>
+                    <p>Khi đó trang chỉnh sửa module của bạn sẽ có 2 phần: </p>
+                    <p> - Phần 1: Để chỉnh sửa thông tin module.</p>
+                    <p> - Phần 2: Để người dùng cài đặt vị trí hiển thị module trên trang mong muốn.</p>
+                </div>
+                <div class="content-group">
+                    <h4>Lấy danh sách modules của ứng dụng</h4>
+                    <p>Để lấy danh sách modules chúng ta dựa vào "app_code" như sau: </p>
+                    <div class="group-code">
+                        <textarea class="code-area" name="code" >
+<?php
+
+// Import thư viện App_Setting
+use App_Api\App_Setting;
+...
+// Khai báo thư viện
+$setting = new App_Setting($this->registry);
+
+// Lấy danh sách modules
+$modules = $setting->getModulesByCode('your_app_code');
+
+//Thông tin của mỗi module đều được lưu vào biến setting dưới dạng json. Để xuất ra thông tin làm như sau:
+foreach ($modules as $module) {
+    if ($module['setting']) {
+        $setting_info = json_decode($module['setting'], true);
+        $name_module = $setting_info['name'];
+        $status = $setting_info['status'];
+    } else {
+        $setting_info = array();
+    }
+}
+?>
+</textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Lấy dữ liệu của Shop</h4>
+                    <p>Onshop cung cấp các thư viện để nhà phát triển có thể lấy dữ liệu của shop sử dụng cho các tính năng của ứng dụng.</p>
+                    <p>Danh sách các dữ liệu hiện đang được Onshop cung cấp: Product, Catalog, Order.</p>
+
+                </DIV>
             </div>
-            <p>- Trong đó: flash_sale là app_code của ứng dụng</p>
-          </div>
-          <div class="content-group">
-            <h4>Gỡ ứng dụng</h4>
-            <p> - Tương tự như hàm install thì ứng dụng của bạn cũng bắt buộc cần có hàm uninstall để xóa các bảng liên quan và các cài đặt của ứng dụng .</p>
-            <div class="group-code">
-              <p>// Xóa đăng ký ứng dụng</p>
-              <p>/* DROP các bảng đã thêm */</p>
-              <p>$this->load->model('extension/appstore/flash_sale');</p>
-              <p>$this->model_extension_appstore_flash_sale->dropTables();</p>
-              <p>
-                // Xóa cài đặt ứng dụng
-              </p>
-              <p>
-                $this->load->model('setting/setting');
-              </p>
-              <p>$this->model_setting_setting->deleteSetting('app_flash_sale');</p>
+        </section>
+        <section id="introduce4">
+            <div class="section-title">
+                <h2 class="mb-4">Hiển thị ứng dụng</h2>
             </div>
-          </div>
-          <div class="content-group">
-            <p>Ở trên sử dụng các hàm dropTable() và createTables() thuộc model flash_sale, hãy định nghĩa 2 hàm này trong model của bạn tại: admin\model\extension\appstore\flash_sale</p>
-            <div class="feature-img">
-              <img src="src/img/model.jpg">
-            </div>
-          </div>
-          <div class="content-group">
-            <h4>Thêm modules cho ứng dụng</h4>
-            <p>Ứng dụng của bạn cần hiển thị các thông tin và vị trí hiển thị ra ngoài website cho người dùng. Vậy hãy thêm các modules phù hợp cho ứng dụng</p>
-            <p>- Một module được thêm cần có 2 trường mặc định là name và status ( 0/1 ). </p>
-            <p>- Ví dụ: Ứng dụng khuyến mãi cần tạo 1 module với tên chương trình, thời gian khuyến mãi, ...vv</p>
-            <p>Để thêm ứng dụng, sử dụng model "appstore_setting" như sau: </p>
-            <div class="group-code">
-              <p>// Load model</p>
-              <p>$this->load->model('setting/appstore_setting');</p>
-              <p>/* Add module</p>
-              <p>Biến đầu tiên là app_code, biến thứ 2 là dữ liệu từ form mà bạn muốn nhập vào thông tin module của mình như: </p>
-              <p> Tên module, status, ngày hết hạn,vv.. */</p>
-              <p>$this->model_setting_appstore_setting->addModule('your_app_code', $this->request->post);</p>
-            </div>
-          </div>
-          <div class="content-group">
-            <h4>Chỉnh sửa modules cho ứng dụng</h4>
-            <p>Trước hết hãy lấy các thông tin về module với module_id của module cần chỉnh sửa</p>
-            <div class="group-code">
-              <p>// Load model</p>
-              <p>$this->load->model('setting/appstore_setting');</p>
-              <p>// Info module</p>
-              <p>// $this->request->get['module_id']: lấy module_id của module cần chỉnh sửa</p>
-              <p>$module_info = $this->model_setting_appstore_setting->getModule($this->request->get['module_id']);</p>
-              <p>$data['name'] = $module_info['name'];</p>
-              <p>$data['status'] = $module_info['status'];</p>
-            </div>
-          </div>
-          <div class="content-group">
-            <h4>Xóa module</h4>
-            <p>Để xóa 1 module, sử dụng hàm deleteModule trong model: model_setting_appstore_setting</p>
-            <div class="group-code">
-              <p>// Load model</p>
-              <p>$this->load->model('setting/appstore_setting');</p>
-              <p>// Delete module</p>
-              <p>$this->model_setting_appstore_setting->deleteModule($this->request->get['module_id']);</p>
-            </div>
-          </div>
-          <div class="content-group">
-            <h4>Cài đặt vị trí hiển thị</h4>
-            <p>Tại trang chỉnh sửa module hãy import layout chỉnh sửa vị trí hiển thị module mà Onshop đã cung cấp sẵn.</p>
-            <div class="group-code">
-              <p>// import layout config app</p>
-              <p>$data['app_config'] = $this->load->controller('common/app_config/setTheme',$config);</p>
-            </div>
-            <div class="feature-img">
-              <img src="src/img/app_config.jpg">
-            </div>
-            <p>Khi đó trang chỉnh sửa của bạn sẽ có 2 phần: </p>
-            <p> - Phần 1: Để chỉnh sửa thông tin module.</p>
-            <p> - Phần 2: Để người dùng cài đặt vị trí hiển thị module trên trang mong muốn.</p>
-          </div>
-          <div class="content-group">
-            <h4>Lấy danh sách modules của ứng dụng</h4>
-            <p>Để lấy danh sách modules chúng ta dựa vào "app_code" như sau: </p>
-            <div class="group-code">
-              <p>// Load model</p>
-              <p>$this->load->model('setting/appstore_setting');</p>
-              <p>// Lấy danh sách modules</p>
-              <p>$modules = $this->model_setting_appstore_setting->getModulesByCode('your_app_code');</p>
-            </div>
-            <p>Thông tin của mỗi module đều được lưu vào biến setting dưới dạng json. Để xuất ra thông tin làm như sau: </p>
-            <div class="group-code">
-              <p>$setting_info = json_decode($module['setting'], true);</p>
-              <p>$name_module = $setting_info['name'];</p>
-              <p>$status = $setting_info['status'];</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="introduce4">
-        <div class="section-title">
-          <h2 class="mb-4">Giới thiệu</h2>
-        </div>
-        <div class="section-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </section>
-      <section id="introduce5">
-        <div class="section-title">
-          <h2 class="mb-4">Giới thiệu</h2>
-        </div>
-        <div class="section-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </section>
+            <div class="section-content">
+                <div class="content-group">
+                    <p>Ứng dụng của bạn đã được cài đặt và cấu hình vị trí hiển thị cho các module mà người dùng mong muốn tại phần Amin.</p>
+                    <p>Để hiển thị ứng dụng của bạn cho người dùng website, hãy tiếp tục với các thành phần tại mục Catalog</p>
+                </div>
+                <div class="content-group">
+                    <h4>Controller</h4>
+                    <p>Các thao tác của người dùng đến ứng dụng của bạn đều được truyền đến controller của app tại catalog/controller/extension/appstore/{your_app_code.php}</p>
+                    <p>Hàm index sẽ được Onshop mặc định gọi đến để hiển thị module ứng dụng của bạn đúng với vị trí hiển thị được cấu hình.</p>
+                    <p>Tại hàm này, hãy lấy các dữ liệu cần thiết và trả về 1 view tương ứng để hiển thị ứng dụng cho người dùng.</p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+<?php
+
+// Import thư viện App_Setting
+use App_Api\App_Config;
+class ControllerExtensionAppstoreYourAppCode extends Controller
+{
+    public function index()
+    {
+        if (isset($this->request->get['module_id'])) {
+            $module_id = $this->request->get['module_id'];
+
+            // Lấy thông tin của module bằng thư viện App_Config
+            $setting = new App_Config($this->registry);
+            $data = $setting->getModule($module_id);
+
+            $data['link_detail'] = array(
+                'text' => 'Trang Detail',
+                'href' => $this->url->link('extension/appstore/your_app_code/detail', 'user_token=' . $this->session->data['user_token'])
+            );
+
+            // Trả về view hiển thị nội dung Module
+            $this->response->setOutput($this->load->view('extension/appstore/your_app_code', $data));
+        }
+    }
+}
+?>
+</textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Model</h4>
+                    <p>Nếu ứng dụng của bạn sử dụng các bảng dữ liệu được tạo khi cài đặt ứng dụng, hãy khai báo và tạo file model tại catalog/model/extension/appstore/your_app_code.php </p>
+                </div>
+                <div class="content-group">
+                    <h4>View</h4>
+                    <p>Trang thể hiện nội dung của module</p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+<!-- Class name : content_app_render là class cha - bắt buộc, bọc toàn bộ nội dung -->
+<div class="content_app_render">
+    <!-- Nội dung module cần hiển thị, ví dụ -->
+    <section class="block-saleoff-product pt-5 mb-3 onshop-block-hot-product">
+        <div class="container">
+            <h2 class="block-title header-font mb-4 pt-3"><span>{{name}}</span></h2>
+            <a href="{{ link_to_detail }}">
+                <div class="block-content row" style="width: 100%;height: 150px;background: #CCC;">
+
+                </div>
+            </a><!-- End block-content -->
+        </div> <!-- End container -->
+    </section>
+</div>
+</textarea>
+                    </div>
+                    <p>Nếu ứng dụng của bạn cần tạo ra 1 đường link mới và 1 trang hiển thị mới, hãy tạo đường link này trong controller và import các layout mặc định của website</p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+<?php
+
+
+class ControllerExtensionAppstoreYourAppCode extends Controller
+{
+    public function detailApp()
+    {
+        // $products: Danh sách sản phẩm khuyến mãi
+        $data['products'] = $products;
+        /* base layout */
+        $data['footer'] = $this->load->controller('common/footer');
+        $data['header'] = $this->load->controller('common/header');
+
+        $this->response->setOutput($this->load->view('extension/appstore/your_app_code/view_app_detail', $data));
+    }
+}
+?>
+</textarea>
+                    </div>
+                    <p>Trang view_app_detail: </p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+{{ header }}
+
+<main class="content-wrapper clearfix">
+    <div class="container">
+        <!-- VIẾT NỘI DUNG HIỂN THỊ TẠI ĐÂY -->
     </div>
-  </div>
-  </body>
-  <script type="text/javascript" src="src/js/jquery.min.js"></script>
-  <script type="text/javascript" src="src/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="src/js/main.js"></script>
+</main>
+<!-- End content wrapper -->
+
+{{ footer }}
+</textarea>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="introduce5">
+            <div class="section-title">
+                <h2 class="mb-4">Đóng gói ứng dụng</h2>
+            </div>
+            <div class="section-content">
+                <p>Để đóng gói ứng dụng, trước tiên bạn hãy tạo file install.xml ngang hàng với thư mục App</p>
+                <p>Nội dung file install như sau</p>
+                <div class="group-code">
+<textarea class="code-area" name="code" >
+<?xml version="1.0" encoding="utf-8"?>
+    <modification>
+    <name>APP NAME</name>
+    <version>1.0.1</version>
+    <author>Onshop Asia group</author>
+    <link>https://novaon.asia</link>
+        <code>app_code</code>
+    <description>APP DESCRIPTION</description>
+    <file path="admin/controller/extension/appstore/your_app_code.php">
+        <operation>
+            <search><![CDATA[ if ($this->user->hasPermission('access', 'marketplace/extension')) { ]]></search>
+            <add position="after"><![CDATA[
+                $marketplace[] = array(
+                    'name'     => "Appstore",
+                    'href'     => $this->url->link('marketplace/extension&type=appstore', 'user_token=' . $this->session->data['user_token'], true),
+                    'children' => array()
+                );
+            ]]></add>
+        </operation>
+    </file>
+</modification>
+</textarea>
+                </div>
+                <p>Sau đó hãy zip folder App và file install.xml thành 1 file zip có dạng như sau: your_app_code.ocmod.zip</p>
+                <p>Gửi file zip này đến Onshop, chúng tôi sẽ tiến hành kiểm thử ứng dụng và thông báo lại kết quả với bạn .</p>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="src/js/jquery.min.js"></script>
+<script type="text/javascript" src="src/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="src/js/main.js"></script>
+<script>
+    var defaul = $('.code-area');
+    for(var i = 0;i <defaul.length;i++){
+        var editor = CodeMirror.fromTextArea(defaul[i], {
+            lineNumbers: true,
+            readOnly: 'nocursor',
+            mode: "php",
+            matchBrackets: true
+        });
+    }
+</script>
 </html>

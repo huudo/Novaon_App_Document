@@ -8246,12 +8246,20 @@ h1, h2, h3, h4, h5,
     -o-transition: all 0.3s;
     transition: all 0.3s;
     position: relative; }
+#sidebar .logo{
+    text-align: center;
+}
+#sidebar .logo img{
+    width: 120px;
+}
 #sidebar .h6 {
     color: #fff; }
 #sidebar.active {
     margin-left: -250px; }
-#sidebar.active .custom-menu {
-    margin-right: -50px; }
+#sidebar .nav-link{
+    position: fixed;
+    max-width: 250px;
+}
 #sidebar h1 {
     margin-bottom: 20px;
     font-weight: 700; }
