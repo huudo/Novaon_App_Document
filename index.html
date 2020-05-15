@@ -218,6 +218,70 @@
                         <p>$this->response->setOutput($this->load->view('extension/appstore/flash_sale/edit_module',$data));</p>
                     </div>
                 </div>
+                <div class="content-group">
+                    <h4>Language</h4>
+                    <p>Onshop sử dụng ngôn ngữ Tiếng Việt và Tiếng Anh cho hệ thống, vì vậy các ứng dụng của bạn cần được cấu hình cả 2 ngôn ngữ</p>
+                   <p>Để làm điều này, Onshop cung cấp giải pháp rất đơn giản, và tiện ích. Nhà phát triển chỉ cần khai báo các thành phần đa ngôn ngữ trong thư mục language theo 2 mục en-gb và vi-vn</p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+<?php
+// Tiếng Anh: language/extension/appstore/en-gb/your_app_code.php
+// Heading
+$_['heading_title'] = 'App Name';
+
+// Text
+$_['text_module'] = 'Modules';
+$_['text_success'] = 'Success: You have modified module Flash Sale !';
+$_['text_content_top'] = 'Content Top';
+$_['text_content_bottom'] = 'Content Bottom';
+$_['text_column_left'] = 'Column Left';
+$_['text_column_right'] = 'Column Right';
+
+?>
+</textarea>
+<textarea class="code-area" name="code" >
+<?php
+// Tiếng Việt: language/extension/appstore/vi-vn/your_app_code.php
+// Heading
+$_['heading_title'] = 'App Name';
+
+// Text
+$_['text_module'] = 'Chương trình';
+$_['text_success'] = 'Thành công: Bạn đã cài đặt chương trình thành công !';
+$_['text_content_top'] = 'Nội dung đầu trang';
+$_['text_content_bottom'] = 'Nội dung cuối trang';
+$_['text_column_left'] = 'Cột trái';
+$_['text_column_right'] = 'Cột phải';
+
+?>
+</textarea>
+                        <p>Sử dụng: Tại controller bạn hãy load file language, hệ thống sẽ dựa vào ngôn ngữ hiện tại của hệ thống để chọn file ngôn ngữ phù hợp</p>
+                        <p>Lúc này tại view bạn chỉ cần hiển thị các biến ngôn ngữ phù hợp như đã khai báo</p>
+<textarea class="code-area" name="code" >
+<?php
+class ControllerExtensionAppstoreYourAppCode extends Controller
+{
+// Load file ngôn ngữ, hệ thống đã mặc định load tất cả biến cấu hình ngôn ngữ và truyền ra view
+$this->load->language('extension/appstore/your_app_code');
+// Bạn cũng có thể lấy giá trị 1 biến cấu hình cụ thể bằng phương thức get
+$this->document->setTitle($this->language->get('heading_title'));
+}
+
+?>
+</textarea>
+<p>Lúc này tại view hiển thị đơn giản là show biến cấu hình phù hợp</p>
+<textarea class="code-area" name="code" >
+<h1 class="page-title float-left">
+    {{ heading_title }}
+</h1>
+<tr>
+    <td class="text-left">{{ text_column_name }}</td>
+    <td class="text-left">{{ text_column_status }}</td>
+    <td class="text-right">{{ text_column_action }}</td>
+</tr>
+</textarea>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="introduce3">
