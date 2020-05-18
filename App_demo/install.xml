@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>APP DEMO</name>
+    <version>1.0.2</version>
+    <author>Onshop Asia group</author>
+    <link>https://novaon.asia</link>
+    <code>APP DEMO</code>
+    <description>APP DEMO</description>
+    <file path="admin/controller/extension/appstore/app_demo.php">
+        <operation>
+            <search><![CDATA[ if ($this->user->hasPermission('access', 'marketplace/extension')) { ]]></search>
+            <add position="after"><![CDATA[
+                $marketplace[] = array(
+                    'name'     => "Appstore",
+                    'href'     => $this->url->link('marketplace/extension&type=appstore', 'user_token=' . $this->session->data['user_token'], true),
+                    'children' => array()
+                );
+            ]]></add>
+        </operation>
+    </file>
+</modification>

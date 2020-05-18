@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<body>
+<div class="page-wrapper">
+    {{ custom_header }}
+    <!-- End header -->
+    <div class="content-wrapper row m-0">
+        {{custom_column_left}}
+        <!-- End col navbar -->
+        <main class="main-wrap col-12 col-lg-10 p-0">
+            <div class="main-content">
+                <div class="sub-head clearfix">
+                    <h1 class="page-title float-left">
+                        {{ heading_title }}
+                    </h1>
+                </div>
+                <div class="box-content">
+                    <div class="container-fluid">
+                        <div class="head">
+                            <h2 class="float-left">Danh sách chương trình</h2>
+
+                            <button class="btn btn-success float-right" data-toggle="modal" data-target="#addModule">{{ action_add_module }}</button>
+                        </div>
+
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <td class="text-left">{{ column_name }}</td>
+                                <td class="text-left">{{ column_status }}</td>
+                                <td class="text-right">{{ column_action }}</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% if modules %}
+                                {% for module in modules %}
+                                    <tr>
+                                        <td class="text-left">&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;&nbsp;&nbsp;{{ module.name }}</td>
+                                        <td class="text-left">{{ module.status }}</td>
+                                        <td class="text-right"><a href="{{ module.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-info">
+                                                <i class="fa fa-edit"></i></a> <a href="{{ module.delete }}" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-warning">
+                                                <i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td class="text-center" colspan="3">{{ text_no_results }}</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="container-fluid">
+                        <h2>Lựa chọn sản phẩm cho flash sale</h2>
+                        <div class="box-content">
+                            <div class="tab-content">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    <div id="product-content" class="not-choose-product-list">
+                                        <table class="table table-with-operation product-list">
+                                            <thead>
+                                            <tr>
+                                                <th scope="check-all" width="10">
+
+                                                </th>
+                                                <th scope="col"></th>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Price</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% if products %}
+                                                {% for product in products %}
+                                                    <tr>
+                                                        <td>
+                                                            <label class="checkbox">
+                                                                <input type="checkbox" name="products[]" value="{{ product.product_id }}">
+                                                                <span></span>
+                                                            </label>
+                                                        </td>
+                                                        <td width="85">
+                                                            {% if product.product_image|length > 0 %}
+                                                                <div class="img">
+                                                                    <img src="{{ product.product_image }}" style="max-width: 100%; height: auto">
+                                                                </div>
+                                                            {% else %}
+                                                                <div class="product-img rounded bg-light"></div>
+                                                            {% endif %}
+                                                        </td>
+                                                        <td>
+                                                            <p>{{ product.product_name }}</p>
+                                                        </td>
+                                                        <td>
+                                                            <p>{{ product.price }}</p>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endif %}
+                                            </tbody>
+                                        </table>
+                                        <div class="text-center">
+                                            <input type="submit" class="btn btn-success" value="Cập nhật sản phẩm">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="addModule" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ action_add_module }}</h4>
+                </div>
+                <form action="{{ action_add }}" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>{{ entry_name }}</label>
+                            <input class="form-control" type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ entry_status }}</label>
+                            <select class="form-control" name="status">
+                                <option value="1">Enable</option>
+                                <option value="0">Disable</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success" value="{{ action_add_module }}">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{ footer }}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<body>
+<div class="page-wrapper">
+    {{ custom_header }}
+    <!-- End header -->
+    <div class="content-wrapper row m-0">
+        {{custom_column_left}}
+        <!-- End col navbar -->
+        <main class="main-wrap col-12 col-lg-10 p-0">
+            <div class="main-content">
+                <div class="box-content">
+                    <div class="page-header">
+                        <div class="container-fluid">
+                            <h1>Chỉnh sửa chương trình</h1>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="box-wrap">
+                            <div class="box-head">
+                            </div>
+                            <div class="box-content">
+                                <div class="tab-content">
+                                    <div class="d-flex justify-content-between">
+                                        <h3><i class="fa fa-edit"></i> Chỉnh sửa chương trình</h3>
+
+                                    </div>
+                                    <form action="{{ action }}" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>{{ entry_name }}</label>
+                                            <input class="form-control" type="text" name="name" value="{{ name }}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ entry_status }}</label>
+                                            <select class="form-control" name="status">
+                                                <option value="1" {% if status == 1 %} selected{% endif %}>Enable</option>
+                                                <option value="0" {% if status == 0 %} selected{% endif %}>Disable</option>
+                                            </select>
+                                        </div>
+                                        <input class="btn btn-success" type="submit" value="Cập nhật">
+                                    </form>
+                                </div>
+                                <div class="border-tab"></div>
+                                <div class="tab-content">
+                                    {{ app_config }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{{ footer }}
+<style>
+    .border-tab{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #CCC;
+    }
+</style>
