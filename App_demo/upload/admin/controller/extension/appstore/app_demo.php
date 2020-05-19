@@ -134,7 +134,7 @@ class ControllerExtensionAppstoreAppDemo extends Controller
         // Update app_name & Logo
         $data = [
             "app_name" => "App Demo",
-            "path_logo" => "view/image/appstore/app_demo.jpg"
+            "path_logo" => "view/image/appstore/app_demo.png"
         ];
 
         $setting = new App_Setting($this->registry);

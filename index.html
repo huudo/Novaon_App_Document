@@ -561,7 +561,7 @@ class ControllerExtensionAppstoreYourAppCode extends Controller
 
             $data['link_detail'] = array(
                 'text' => 'Trang Detail',
-                'href' => $this->url->link('extension/appstore/your_app_code/detail', 'user_token=' . $this->session->data['user_token'])
+                'href' => $this->url->link('extension/appstore/your_app_code/detail','',true)
             );
 
             // Trả về view hiển thị nội dung Module
