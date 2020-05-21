@@ -11,6 +11,10 @@ $_['text_content_top'] = 'Content Top';
 $_['text_content_bottom'] = 'Content Bottom';
 $_['text_column_left'] = 'Column Left';
 $_['text_column_right'] = 'Column Right';
+$_['heading_title_description'] = "Giới thiệu ứng dụng";
+$_['text_go_to_app'] = "Truy cập ứng dụng";
+$_['text_sort_description'] = "Giới thiệu ngắn";
+$_['text_detail'] = "Chi tiết";
 
 // Entry
 $_['entry_code'] = 'Flash Sale Code:';

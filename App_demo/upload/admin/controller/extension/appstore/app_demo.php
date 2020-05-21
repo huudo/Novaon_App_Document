@@ -89,7 +89,24 @@ class ControllerExtensionAppstoreAppDemo extends Controller
 
         return !$this->error;
     }
+    function introduce(){
+        $this->load->language('extension/appstore/app_demo');
+        $this->document->setTitle($this->language->get('heading_title_description'));
 
+        // Load logo app
+        $data['app_logo'] = "view/image/appstore/app_demo.jpg";
+
+        // Link to detail app
+        $data['link_to_app'] = $this->url->link('extension/appstore/app_demo', 'user_token=' . $this->session->data['user_token'] , true);
+
+        // Import default layoyt
+        $data['custom_header'] = $this->load->controller('common/custom_header');
+        $data['custom_column_left'] = $this->load->controller('common/custom_column_left');
+        $data['footer'] = $this->load->controller('common/footer');
+
+        // Return view of introduce page
+        $this->response->setOutput($this->load->view('extension/appstore/app_demo/introduce', $data));
+    }
     function setup_product(){
         $this->load->language('extension/appstore/app_demo');
         if (($this->request->server['REQUEST_METHOD'] == 'POST') ) {
@@ -134,11 +151,20 @@ class ControllerExtensionAppstoreAppDemo extends Controller
         // Update app_name & Logo
         $data = [
             "app_name" => "App Demo",
-            "path_logo" => "view/image/appstore/app_demo.png"
+            "path_logo" => "view/image/appstore/app_demo.jpg"
         ];
 
         $setting = new App_Setting($this->registry);
         $setting->updateInfo("app_demo",$data);
+        $asset = [
+            "css" => [
+                "catalog/view/theme/default/template/extension/appstore/asset/css/app_demo.css"
+            ],
+            "js" => [
+                "catalog/view/theme/default/template/extension/appstore/asset/js/app_demo.js"
+            ]
+        ];
+        $setting->addAsset("app_demo",$asset);
     }
 
     function uninstall()
