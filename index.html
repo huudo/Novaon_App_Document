@@ -295,6 +295,7 @@ $this->document->setTitle($this->language->get('heading_title'));
                     <p> - Hàm install này nhà phát triển có thể khai báo để tiến hành khởi tạo các bảng dữ liệu cần thiết cho ứng dụng của bạn. </p>
                     <p> - Tại đây hãy tiến hành cập nhật tên ứng dụng và logo ứng dụng theo hướng dẫn.</p>
                     <p> - Ảnh kích thước 200*200px</p>
+                    <p> - Nếu ứng dụng của bạn cần sử dụng các file asset (css,js) riêng để hỗ trợ người dùng thao tác với ứng dụng, hãy khai báo cài đặt các file này.</p>
                     <div class="group-code">
 <textarea class="code-area" name="code" >
 <?php
@@ -305,17 +306,29 @@ class ControllerExtensionAppstoreFlashSale extends Controller
     function install()
     {
         // Khởi tạo bảng dữ liệu
-        $this->load->model('extension/appstore/flash_sale');
-        $this->model_extension_appstore_flash_sale->createTables();
+        $this->load->model('extension/appstore/your_app_code');
+        $this->model_extension_appstore_your_app_code->createTables();
 
         // Update app_name & Logo
         $data = [
-            "app_name" => "Flash Sale",
-            "path_logo" => "view/image/appstore/flash_sale.jpg"
+            "app_name" => "YOUR APP NAME",
+            "path_logo" => "view/image/appstore/your_app_code.jpg"
         ];
 
         $setting = new App_Setting($this->registry);
-        $setting->updateInfo("flash_sale",$data);
+        $setting->updateInfo("your_app_code",$data);
+
+        // Khai báo đường dẫn file asset của bạn
+        $asset = [
+            "css" => [
+                "catalog/view/theme/default/template/extension/appstore/asset/css/app_demo.css"
+            ],
+            "js" => [
+                "catalog/view/theme/default/template/extension/appstore/asset/js/app_demo.js"
+            ]
+        ];
+        // Thêm cấu hình file asset bằng hàm addAsset được cung cấp.
+        $setting->addAsset("your_app_code",$asset);
     }
 }
 ?>
@@ -374,6 +387,47 @@ class ModelExtensionAppstoreFlashSale extends Model
 }
 ?>
 </textarea>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <h4>Trang giới thiệu ứng dụng</h4>
+                    <p>Mỗi ứng dụng của bạn đều phải có 1 trang giới thiệu mặc định. Tại trang giới thiệu hãy hiển thị thông tin ứng dụng với bố cục 3 phần:</p>
+                    <p>- Phần 1: Logo app, tên app và đường dẫn đến trang chi tiết app</p>
+                    <p>- Phần 2: Giới thiệu ngắn gọn</p>
+                    <p>- Phần 3: Giới thiệu chi tiết app</p>
+                    <p>Ứng dụng của bạn bắt buộc có hàm introduce() như ví dụ sau:</p>
+                    <div class="group-code">
+<textarea class="code-area" name="code" >
+<?php
+
+class ControllerExtensionAppstoreYourAppCode extends Controller
+{
+    function introduce()
+    {
+        $this->load->language('extension/appstore/app_demo');
+        $this->document->setTitle($this->language->get('heading_title_description'));
+
+        // Load logo app
+        $data['app_logo'] = "view/image/appstore/app_demo.jpg";
+
+        // Link to detail app
+        $data['link_to_app'] = $this->url->link('extension/appstore/app_demo', 'user_token=' . $this->session->data['user_token'] , true);
+
+        // Import default layoyt
+        $data['custom_header'] = $this->load->controller('common/custom_header');
+        $data['custom_column_left'] = $this->load->controller('common/custom_column_left');
+        $data['footer'] = $this->load->controller('common/footer');
+
+        // Return view of introduce page
+        $this->response->setOutput($this->load->view('extension/appstore/app_demo/introduce', $data));
+    }
+}
+?>
+</textarea>
+                    </div>
+                    <p>Ví dụ trang giới thiệu App Demo</p>
+                    <div class="feature-img">
+                        <img src="src/img/introduce.png">
                     </div>
                 </div>
                 <div class="content-group">
